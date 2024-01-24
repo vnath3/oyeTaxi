@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Trips Blog</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            /* background-color: #333; */
+            background-color: #000000;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            margin-right: auto;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+            /* Align to the left */
+        }
+
+        .nav-option {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-option:hover {
+            text-decoration: underline;
+        }
+
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: calc(50% - 10px);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            transition: transform 0.3s ease-in-out;
+            width: calc(48% - 10px);
+            /* Adjusted to allow gap space between cards */
+
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-title {
+            padding: 15px;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .card-description {
+            padding: 0 15px 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .summer-card {
+            margin-bottom: 20px;
+            text-decoration: none;
+            /* Added to remove default link underline */
+            color: #333;
+            /* Added to maintain text color */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <div class="logo">
+            <!-- Your logo or site name goes here -->
+            Summer Trips Blog
+        </div>
+        <!-- Other header content goes here -->
+        <nav>
+            <a class="nav-option" href="#">Home</a>
+            <a class="nav-option" href="#">Summer Trips</a>
+            <!-- Add more navigation options as needed -->
+        </nav>
+    </header>
+
+    <div class="blog-container">
+
+        <!-- WEST BENGAL -->
+
+        <div class="card summer-card darjeeling-card">
+            <a href="DiscoverDarjeeling.html" class="summer-card">
+                <img src="/images/darjiling/tea_garden_darjiling.jpg" alt="Summer Trip 2">
+            </a>
+            <div class="card-title">🌄 Discover Darjeeling: A Mesmerizing Gem in the Heart of West Bengal</div>
+            <div class="card-description">Explore the scenic beauty of Darjeeling, known for its mesmerizing tea
+                gardens.</div>
+        </div>
+
+        <!-- HIMACHAL PRADESH -->
+
+        <div class="card summer-card">
+            <a href="ShimlaExperience.html" class="summer-card">
+                <img src="images/shimla/shimla_mountain_vie.jpg" alt="Summer Trip 1">
+            </a>
+            <div class="card-title">Shimla, Himachal Pradesh</div>
+            <div class="card-description">Experience the charm of Shimla, surrounded by picturesque mountain views.
+            </div>
+        </div>
+
+
+        <!-- JAMMU AND KASHMIR -->
+
+        <div class="card summer-card">
+            <a href="FloatingMarketSrinagar.html" class="summer-card">
+                <img src="images/JammuAndKashmir/floatingMarket_srinagar.jpg" alt="Summer Trip 4">
+            </a>
+            <div class="card-title">Floating Market, Jammu & Kashmir</div>
+            <div class="card-description">Visit the unique floating market in Srinagar, J&K, for an unforgettable
+                experience.</div>
+        </div>
+
+
+        <!-- KERALA -->
+
+        <div class="card summer-card">
+            <a href="TeaGardensMunnar.html" class="summer-card">
+                <img src="images/munnar/tea garden.jpg" alt="Summer Trip 6">
+            </a>
+            <div class="card-title">Munnar, Kerala</div>
+            <div class="card-description">Discover the lush green tea gardens of Munnar, offering a serene escape in
+                Kerala.</div>
+        </div>
+
+
+        <!-- UTTARAKHAND -->
+
+        <div class="card summer-card">
+            <a href="NainitalTranquility.html" class="summer-card"></a>
+            <img src="images/nainital/lake.jpg" alt="Summer Trip 9">
+            </a>
+            <div class="card-title">Nainital, Uttarakhand</div>
+            <div class="card-description">Experience the tranquility of Nainital, a charming hill station surrounded
+                by lakes and hills.</div>
+        </div>
+
+
+        <!-- HIMACHAL PRADESH -->
+
+        <div class="card summer-card">
+            <a href="RohtangAdventure.html" class="summer-card">
+                <img src="images/himachal_Pradesh/rohtangpass.jpg" alt="Summer Trip 3">
+            </a>
+            <div class="card-title">Rohtang Pass, Himachal Pradesh</div>
+            <div class="card-description">Embark on an adventure to Rohtang Pass, offering breathtaking views of the
+                Himalayas.</div>
+        </div>
+
+
+        <!-- JAMMU AND KASHMIR -->
+
+        <div class="card summer-card">
+            <a href="LehCulturalExploration.html" class="summer-card">
+                <img src="images/lehLadhak/leh-ladhak.jpg" alt="Summer Trip 5">
+            </a>
+            <div class="card-title">Leh, Jammu & Kashmir</div>
+            <div class="card-description">Explore the unique landscapes and cultural richness of Leh in J&K.</div>
+        </div>
+
+
+        <!-- TAMIL NADU -->
+
+        <div class="card summer-card">
+            <a href="OotySerenity.html" class="summer-card"></a>
+            <img src="images/ooty/ooty_lake.jpg" alt="Summer Trip 8">
+            </a>
+            <div class="card-title">Ooty, Tamil Nadu</div>
+            <div class="card-description">Enjoy the serene beauty of Ooty, known for its picturesque landscapes and
+                tranquil lakes.</div>
+        </div>
+
+
+        <!-- UTTARAKHAND -->
+
+        <div class="card summer-card">
+            <a href="MussoorieEnchantment.html" class="summer-card">
+                <img src="images/Mussoorie/waterfall.jpg" alt="Summer Trip 7">
+            </a>
+            <div class="card-title">Mussoorie, Uttarakhand</div>
+            <div class="card-description">Visit Mussoorie for its enchanting waterfalls and captivating hill station
+                vibes.</div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
