@@ -1,0 +1,193 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2c3e50;
+    color: #fff;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-size: 16px;
+    flex-direction: column;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    /* Add more styles for smaller screens as needed */
+}
+
+
+.widget-container {
+    background-color: #ffcc00;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    /* Add position relative */
+    height: auto;
+    /* or adjust to an appropriate value */
+    /* overflow-y: auto; */
+    /* Add this to enable vertical scrolling if needed */
+}
+
+.widget-container.error {
+    transform: scale(1.05);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #2c3e50;
+}
+
+select,
+input[type="date"],
+input[type="time"],
+button {
+    /* max-width: 100%; */
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 25px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #34495e;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2c3e50;
+}
+
+.error-message {
+    color: #c0392b;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+#cab-list-container {
+    margin-top: 20px;
+    text-align: center;
+    display: none;
+    /* Hide the cab list by default */
+}
+
+#cab-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: #fff;
+    color: #2c3e50;
+    border: #000000;
+}
+
+#cab-list th,
+#cab-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#cab-list th {
+    background-color: #ffcc00;
+}
+
+#cab-list button {
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#cab-list button:hover {
+    background-color: #219d54;
+}
+
+#loader {
+    display: none;
+    font-size: 40px;
+    color: #000000;
+}
+
+.loading {
+    filter: blur(2px);
+    pointer-events: none;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.tab.active {
+    background-color: #34495e;
+}
+
+#toggle-btn-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.toggle-btn {
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 15px 15px 0 0;
+    background-color: #2c3e50;
+    color: #fff;
+    flex-grow: 1;
+}
+
+.toggle-btn.active {
+    background-color: #000000;
+    color: #ffcc00;
+    /* Change text color for better visibility */
+}
+
+.widget-lable {
+    font-size: 25px;
+    text-align: left;
+    margin-bottom: 5px;
+    /* Adjust the margin as needed */
+
+}
+
+.widget-dropdowns {
+    font-size: 25px;
+    text-align: left;
+
+}
+
+.search-cab-button {
+    font-size: 25px;
+}
+
+.widget-dropdowns[type="date"] {
+    font-size: 25px;
+    /* Adjust the font size as needed */
+    text-align: left;
+    width: calc(100% - 16px);
+    /* Adjust the width as needed */
+}

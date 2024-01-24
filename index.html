@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Travel Epic</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Styles */
+        header {
+            /* background-color: #333; */
+            background-color: #000000;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            /* color: #ffcc00;
+            font-size: 24px;
+            font-weight: bold; */
+
+            font-size: 35px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            font-family: 'Shadows Into Light', cursive;
+        }
+
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin-left: 0;
+            justify-content: flex-start;
+
+        }
+
+        /* Hover Effect for Header Options */
+        .nav-option {
+            position: relative;
+            margin-left: 100px;
+        }
+
+        .nav-option a {
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+
+        .nav-option:hover .popup {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Hero Container Styles */
+        .hero-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        /* Video Container Styles */
+        .video-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensure the video covers the container */
+        }
+
+        .video-section {
+            position: relative;
+            width: 20%;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+        }
+
+        .overlay-text {
+            position: absolute;
+            /* top: 50%; */
+            bottom: 0;
+            /* Position at the bottom */
+            left: 50%;
+            transform: translate(-50%);
+            text-align: center;
+            font-family: 'Shadows Into Light', cursive;
+            /* Use Shadows Into Light font-family */
+            /* Change to the desired font-family */
+            font-weight: bold;
+            /* Make the text bold */
+            font-size: 22px;
+            /* Increase the font size */
+            color: white;
+            /* text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; */
+            /* Add a shadow to create a border-like effect */
+            z-index: 1;
+            /* Ensure the text is above the video */
+        }
+
+        .overlay-text h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .overlay-text p {
+            font-size: 1.2em;
+        }
+
+        /* Travel Widget Styles */
+        .travel-widget {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Card Container Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 20px;
+            padding: auto;
+        }
+
+        /* Individual Card Styles */
+        .card {
+            width: 450px;
+            height: 700px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .card-title {
+            position: absolute;
+            bottom: 200px;
+            left: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Region Container Styles */
+        .region-container {
+            display: flex;
+            overflow-x: scroll;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        /* Individual Region Card Styles */
+        .region-card {
+            width: 300px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .region-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+            z-index: 100;
+            width: 700px;
+            height: 600px;
+            text-align: left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: opacity 0.3s ease-in-out;
+
+        }
+
+        .popup img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .popup p {
+            margin-bottom: 10px;
+            margin-top: ;
+            color: #333;
+            /* Change the text color here */
+        }
+
+        .popup .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .popup .card {
+            width: calc(25% - 10px);
+            height: 150px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup .card:hover {
+            transform: scale(1.05);
+        }
+
+        .popup .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .popup .card-title {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Add this line for background color */
+            padding: 5px 10px;
+            /* Add padding for better visibility */
+            border-radius: 5px;
+            /* Add border-radius for a rounded look */
+        }
+
+        /* Additional Style to Adjust Popup Position */
+        .popup.adjusted {
+            right: 0;
+            left: auto;
+        }
+
+        /* Your wigit  styles can be added here */
+        .cab-widget-container {
+            display: flex;
+            justify-content: space-between;
+            transition: transform 0.5s ease-in-out;
+            padding: auto;
+        }
+
+        .cab-widget {
+            background-color: #030303;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 40px auto;
+            /* Adjusted margin for centering */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cab-widget label {
+            display: block;
+            margin: 10px 0;
+            color: white;
+        }
+
+        .cab-widget input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .cab-widget button {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .cab-widget button:hover {
+            background-color: #ffdb4d;
+        }
+
+        .additional-div {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 40px auto;
+            position: relative;
+            overflow: hidden;
+            transform: translateX(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navOptions = document.querySelectorAll('.nav-option');
+
+            navOptions.forEach(option => {
+                const popup = option.querySelector('.popup');
+                option.addEventListener('mouseenter', () => {
+                    popup.style.opacity = 1;
+                });
+                option.addEventListener('mouseleave', () => {
+                    popup.style.opacity = 0;
+                });
+                popup.addEventListener('mouseenter', () => {
+                    popup.style.opacity = 1;
+                });
+                popup.addEventListener('mouseleave', () => {
+                    popup.style.opacity = 0;
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var videoContainers = document.querySelectorAll('.video-container');
+
+            videoContainers.forEach(function (container) {
+                var videoSource = container.getAttribute('data-src');
+                var video = document.createElement('video');
+
+                // Set video attributes
+                video.src = videoSource;
+                video.controls = true; // Add controls if needed
+
+                // Replace placeholder with the actual video when it comes into view
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            container.appendChild(video);
+                            observer.unobserve(container); // Stop observing once loaded
+                        }
+                    });
+                });
+
+                observer.observe(container);
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navOptions = document.querySelectorAll('.nav-option');
+
+            navOptions.forEach(option => {
+                const popup = option.querySelector('.popup');
+                option.addEventListener('mouseenter', () => {
+                    // Check if the popup goes beyond the right edge of the screen
+                    const rect = popup.getBoundingClientRect();
+                    const rightEdge = rect.left + rect.width;
+                    const screenWidth = window.innerWidth;
+
+                    if (rightEdge > screenWidth) {
+                        popup.classList.add('adjusted');
+                    } else {
+                        popup.classList.remove('adjusted');
+                    }
+
+                    popup.style.opacity = 1;
+                });
+                option.addEventListener('mouseleave', () => {
+                    popup.style.opacity = 0;
+                });
+                popup.addEventListener('mouseenter', () => {
+                    popup.style.opacity = 1;
+                });
+                popup.addEventListener('mouseleave', () => {
+                    popup.style.opacity = 0;
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var videoContainers = document.querySelectorAll('.video-container');
+
+            videoContainers.forEach(function (video) {
+                video.addEventListener('mouseenter', function () {
+                    video.play();
+                });
+
+                video.addEventListener('mouseleave', function () {
+                    video.pause();
+                });
+            });
+        });
+    </script>
+    <script>
+        function showAdditionalDiv() {
+            // Toggle the display property to show/hide the additional div
+            const additionalDiv = document.querySelector('.additional-div');
+            additionalDiv.style.display = (additionalDiv.style.display === 'none') ? 'block' : 'none';
+
+            // Toggle the transform property to move the additional div
+            additionalDiv.style.transform = (additionalDiv.style.transform === 'translateX(0)') ? 'translateX(100%)' : 'translateX(0)';
+        }
+    </script>
+    <!-- Include the Roboto font from Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Indian Travel Epic</div>
+        <nav>
+            <div class="nav-option">
+                <a href="supporting_pages/summerTrips.html">Summer Trips</a>
+                <div class="popup">
+                    <p>Explore the beauty of summer destinations with our curated trips.</p>
+                    <div class="card-container">
+
+                        <!-- WEST BENGAL -->
+                        <div class="card">
+                            <a href="supporting_pages/DiscoverDarjeeling.html">
+                                <img src="images/darjiling/tea_garden_darjiling.jpg" alt="Summer Trip 2">
+                                <div class="card-title">Darjeeling, West bengal</div>
+                            </a>
+                        </div>
+                        <!-- HIMACHAL PRADESH -->
+                        <div class="card">
+                            <img src="images/shimla/shimla_mountain_vie.jpg" alt="Summer Trip 1">
+                            <div class="card-title">Shimla, Himachal Pradesh </div>
+                        </div>
+                        <div class="card">
+                            <img src="images/himachal_Pradesh/rohtangpass.jpg" alt="Summer Trip 3">
+                            <div class="card-title">Rohtang pass, Himachal Pradesh</div>
+                        </div>
+                        <!-- JAMMU AND KASHMIR -->
+                        <div class="card">
+                            <img src="images/JammuAndKashmir/floatingMarket_srinagar.jpg" alt="Summer Trip 4">
+                            <div class="card-title">Floating market, J&K</div>
+                        </div>
+                        <div class="card">
+                            <img src="images/lehLadhak/leh-ladhak.jpg" alt="Summer Trip 5">
+                            <div class="card-title">Leh, J&K</div>
+                        </div>
+
+                        <!-- KERALA -->
+                        <div class="card">
+                            <img src="images/munnar/tea garden.jpg" alt="Summer Trip 6">
+                            <div class="card-title">Munnar, Kerala</div>
+                        </div>
+                        <!-- TAMIL NADU -->
+                        <div class="card">
+                            <img src="images/ooty/ooty_lake.jpg" alt="Summer Trip 8">
+                            <div class="card-title">Ooty, Tamil Nadu</div>
+                        </div>
+                        <!-- UTTTARAKHAND -->
+                        <div class="card">
+                            <img src="images/nainital/lake.jpg" alt="Summer Trip 9">
+                            <div class="card-title">Nainital, Uttarakhand</div>
+                        </div>
+                        <div class="card">
+                            <img src="images/Mussoorie/waterfall.jpg" alt="Summer Trip 7">
+                            <div class="card-title">Mussoorie, Uttarakhand</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-option">
+                <a href="#">Winter Trips</a>
+                <div class="popup">
+                    <p>Experience the magic of winter wonderlands with our exclusive winter trips.</p>
+                    <div class="card-container">
+                        <div class="card">
+                            <img src="https://source.unsplash.com/200x200/?winter" alt="Winter Trip 1">
+                            <div class="card-title">Card 1</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://source.unsplash.com/200x200/?winter" alt="Winter Trip 2">
+                            <div class="card-title">Card 2</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://source.unsplash.com/200x200/?winter" alt="Winter Trip 3">
+                            <div class="card-title">Card 3</div>
+                        </div>
+                        <!-- Add more winter trip cards as needed -->
+                    </div>
+                </div>
+            </div>
+            <div class="nav-option">
+                <a href="#">Rainy Trips</a>
+                <div class="popup">
+                    <p>Embrace the beauty of monsoons with our enchanting rainy trips.</p>
+                    <div class="card-container">
+                        <div class="card">
+                            <img src="https://source.unsplash.com/200x200/?rainy" alt="Rainy Trip 1">
+                            <div class="card-title">Card 1</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://source.unsplash.com/200x200/?rainy" alt="Rainy Trip 2">
+                            <div class="card-title">Card 2</div>
+                        </div>
+                        <div class="card">
+                            <img src="https://source.unsplash.com/200x200/?rainy" alt="Rainy Trip 3">
+                            <div class="card-title">Card 3</div>
+                        </div>
+                        <!-- Add more rainy trip cards as needed -->
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" style="color: #fff;">Guide to India</a>
+            <a href="#" style="color: #fff;">Blog</a>
+            <a href="#" style="color: #fff;">About Us</a>
+        </nav>
+    </header>
+
+    <div class="hero-container">
+        <div class="video-section" id="section1">
+            <video class="video-container" loop muted>
+                <source src="videos/compressed/Kerla_India.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay-text">
+                <p>Kerala</p>
+                <!-- <p>Kerala: Where Tradition Meets Tranquility.</p> -->
+                <!-- <p>Your overlay text for Section 1</p> -->
+            </div>
+        </div>
+        <div class="video-section" id="section2">
+            <video class="video-container" loop muted>
+                <source src="videos/compressed/kashmir_India.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay-text">
+                <p>Kashmir</p>
+                <!-- <p>Kashmir: Paradise Found, Memories Made.</p> -->
+                <!-- <p>Witness the breathtaking beauty of the Kashmir Valley, surrounded by snow-capped mountains and
+                    pristine lakes</p> -->
+            </div>
+        </div>
+        <div class="video-section" id="section3">
+            <video class="video-container" loop muted>
+                <source src="videos/compressed/mumbai_sea_link.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay-text">
+
+                <p>Mumbai Sea Link</p>
+                <!-- <p>Mumbai Sea Link: Urban Elegance Unveiled</p> -->
+                <!-- <p>India's economic capital</p> -->
+            </div>
+        </div>
+        <div class="video-section" id="section4">
+            <video class="video-container" loop muted>
+                <source src="videos/compressed/ellora_Maharashtra_india.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay-text">
+                <p>Ellora Temple</p>
+                <!-- <p>Ellora Temple: Ancient Splendor Preserved.</p> -->
+                <!-- <p>Ellora, Maharashtra</p> -->
+            </div>
+        </div>
+        <div class="video-section" id="section5">
+            <video class="video-container" loop muted>
+                <source src="videos/compressed/Himichal_road_drive.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="overlay-text">
+                <p>Shimla</p>
+                <!-- <p>Ellora, Maharashtra</p> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="cab-widget-container">
+        <!-- Use an iframe to include the HTML file from a different folder -->
+        <iframe src="widget/booking_Widget_1.html" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        &copy; 2024 Indian Travel Epic
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cab Booking Widget</title>
+    <link rel="stylesheet" type="text/css" href="cab-widget.css">
+</head>
+
+<body>
+    <script src="cab-widget.js"></script>
+    <div class="widget-container" id="booking-widget">
+        <label class="widget-lable" for="source">Source City:</label>
+        <select class="widget-dropdowns" id="source" onchange="updateDropdownOptions()">
+            <option value="" selected disabled>Select Source City</option>
+            <option value="Mumbai">Mumbai, Maharashtra</option>
+            <option value="Pune">Pune, Maharashtra</option>
+            <option value="Nagpur">Nagpur, Maharashtra</option>
+            <option value="Thane">Thane, Maharashtra</option>
+            <option value="Nashik">Nashik, Maharashtra</option>
+            <option value="Aurangabad">Aurangabad, Maharashtra</option>
+            <option value="Solapur">Solapur, Maharashtra</option>
+            <option value="Amravati">Amravati, Maharashtra</option>
+            <option value="Navi Mumbai">Navi Mumbai, Maharashtra</option>
+            <option value="Kolhapur">Kolhapur, Maharashtra</option>
+            <option value="Akola">Akola, Maharashtra</option>
+            <option value="Nanded">Nanded, Maharashtra</option>
+
+
+            <!-- <option value="Jalgaon">Jalgaon, Maharashtra</option>
+            <option value="Latur">Latur, Maharashtra</option>
+            <option value="Ahmednagar">Ahmednagar, Maharashtra</option>
+            <option value="Chandrapur">Chandrapur, Maharashtra</option>
+            <option value="Parbhani">Parbhani, Maharashtra</option>
+            <option value="Satara">Satara, Maharashtra</option>
+            <option value="Dhule">Dhule, Maharashtra</option>
+            <option value="Jalna">Jalna, Maharashtra</option>
+            <option value="Bhiwandi">Bhiwandi, Maharashtra</option>
+            <option value="Wardha">Wardha, Maharashtra</option>
+            <option value="Kolad">Kolad, Maharashtra</option>
+            <option value="Alibaug">Alibaug, Maharashtra</option>
+            <option value="Lonavala">Lonavala, Maharashtra</option>
+            <option value="Ratnagiri">Ratnagiri, Maharashtra</option>
+            <option value="Sangli">Sangli, Maharashtra</option>
+            <option value="Osmanabad">Osmanabad, Maharashtra</option>
+            <option value="Palghar">Palghar, Maharashtra</option>
+            <option value="Beed">Beed, Maharashtra</option>
+            <option value="Karad">Karad, Maharashtra</option>
+            <option value="Yavatmal">Yavatmal, Maharashtra</option>
+            <option value="Panvel">Panvel, Maharashtra</option>
+            <option value="Buldhana">Buldhana, Maharashtra</option>
+            <option value="Aurangabad">Aurangabad, Maharashtra</option>
+            <option value="Dhule">Dhule, Maharashtra</option>
+            <option value="Ichalkaranji">Ichalkaranji, Maharashtra</option>
+            <option value="Hingoli">Hingoli, Maharashtra</option>
+            <option value="Nandurbar">Nandurbar, Maharashtra</option>
+            <option value="Gondia">Gondia, Maharashtra</option>
+            <option value="Gadchiroli">Gadchiroli, Maharashtra</option>
+            <option value="Washim">Washim, Maharashtra</option>
+            <option value="Wardha">Wardha, Maharashtra</option>
+            <option value="Jalgaon Jamod">Jalgaon Jamod, Maharashtra</option>
+            <option value="Pusad">Pusad, Maharashtra</option>
+            <option value="Manmad">Manmad, Maharashtra</option>
+            <option value="Udgir">Udgir, Maharashtra</option>
+            <option value="Kalyan-Dombivali">Kalyan-Dombivali, Maharashtra</option>
+            <option value="Bhusawal">Bhusawal, Maharashtra</option>
+            <option value="Vasai-Virar">Vasai-Virar, Maharashtra</option> -->
+        </select>
+
+
+        <label class="widget-lable" for="destination">Destination City:</label>
+        <select class="widget-dropdowns" id="destination" onchange="updateDropdownOptions()">
+            <option value="" selected disabled>Select Source City</option>
+            <option value="Mumbai">Mumbai, Maharashtra</option>
+            <option value="Pune">Pune, Maharashtra</option>
+            <option value="Nagpur">Nagpur, Maharashtra</option>
+            <option value="Thane">Thane, Maharashtra</option>
+            <option value="Nashik">Nashik, Maharashtra</option>
+            <option value="Aurangabad">Aurangabad, Maharashtra</option>
+            <option value="Solapur">Solapur, Maharashtra</option>
+            <option value="Amravati">Amravati, Maharashtra</option>
+            <option value="Navi Mumbai">Navi Mumbai, Maharashtra</option>
+            <option value="Kolhapur">Kolhapur, Maharashtra</option>
+            <option value="Akola">Akola, Maharashtra</option>
+            <option value="Nanded">Nanded, Maharashtra</option>
+
+            <!-- <option value="Jalgaon">Jalgaon, Maharashtra</option>
+            <option value="Latur">Latur, Maharashtra</option>
+            <option value="Ahmednagar">Ahmednagar, Maharashtra</option>
+            <option value="Chandrapur">Chandrapur, Maharashtra</option>
+            <option value="Parbhani">Parbhani, Maharashtra</option>
+            <option value="Satara">Satara, Maharashtra</option>
+            <option value="Dhule">Dhule, Maharashtra</option>
+            <option value="Jalna">Jalna, Maharashtra</option>
+            <option value="Bhiwandi">Bhiwandi, Maharashtra</option>
+            <option value="Wardha">Wardha, Maharashtra</option>
+            <option value="Kolad">Kolad, Maharashtra</option>
+            <option value="Alibaug">Alibaug, Maharashtra</option>
+            <option value="Lonavala">Lonavala, Maharashtra</option>
+            <option value="Ratnagiri">Ratnagiri, Maharashtra</option>
+            <option value="Sangli">Sangli, Maharashtra</option>
+            <option value="Osmanabad">Osmanabad, Maharashtra</option>
+            <option value="Palghar">Palghar, Maharashtra</option>
+            <option value="Beed">Beed, Maharashtra</option>
+            <option value="Karad">Karad, Maharashtra</option>
+            <option value="Yavatmal">Yavatmal, Maharashtra</option>
+            <option value="Panvel">Panvel, Maharashtra</option>
+            <option value="Buldhana">Buldhana, Maharashtra</option>
+            <option value="Aurangabad">Aurangabad, Maharashtra</option>
+            <option value="Dhule">Dhule, Maharashtra</option>
+            <option value="Ichalkaranji">Ichalkaranji, Maharashtra</option>
+            <option value="Hingoli">Hingoli, Maharashtra</option>
+            <option value="Nandurbar">Nandurbar, Maharashtra</option>
+            <option value="Gondia">Gondia, Maharashtra</option>
+            <option value="Gadchiroli">Gadchiroli, Maharashtra</option>
+            <option value="Washim">Washim, Maharashtra</option>
+            <option value="Wardha">Wardha, Maharashtra</option>
+            <option value="Jalgaon Jamod">Jalgaon Jamod, Maharashtra</option>
+            <option value="Pusad">Pusad, Maharashtra</option>
+            <option value="Manmad">Manmad, Maharashtra</option>
+            <option value="Udgir">Udgir, Maharashtra</option>
+            <option value="Kalyan-Dombivali">Kalyan-Dombivali, Maharashtra</option>
+            <option value="Bhusawal">Bhusawal, Maharashtra</option>
+            <option value="Vasai-Virar">Vasai-Virar, Maharashtra</option> -->
+        </select>
+        <label class="widget-lable" for="date">Date:</label>
+        <input class="widget-dropdowns" type="date" id="date" onchange="handleDateChange()">
+        <label class=" widget-dropdowns" class="widget-label" for="time">Pickup Time:</label>
+        <input type="time" id="time">
+        <button class="search-cab-button" onclick="searchCab()">Search Cab</button>
+        <div id="error-message" class="error-message"></div>
+        <div id="loader">Loading...</div>
+        <div id="cab-list-container">
+            <h2 style="background-color: #ffcc00; padding: 10px; color: #2c3e50; font-size: 55px;">
+                Cab Options
+                <span id="close-icon" onclick="closeCabOptions()"
+                    style="cursor: pointer; position: relative; top: 0; right: -105px;">✖</span>
+            </h2>
+            <table id="cab-list">
+                <thead>
+                    <tr>
+                        <th>Trip Details</th>
+                        <th>Car Name</th>
+                        <th>Price per km</th>
+                        <th>Total Distance</th>
+                        <th>Total Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cab-list-body"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
